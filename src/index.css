@@ -31,9 +31,12 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+  user-select: none;
+  text-align: center; 
 }
+
 
 button {
   border-radius: 8px;
@@ -53,6 +56,13 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

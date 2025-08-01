@@ -1,55 +1,225 @@
+/* Global & body */
+body,
+html,
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  height: 100%;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #70e1f5, #ffd194);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #2c3e50;
+}
+
+/* Container */
+.app-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2.5rem 3rem;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  user-select: none;
+  overflow: hidden;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Heading */
+h1 {
+  font-weight: 700;
+  margin-bottom: 1.8rem;
+  user-select: none;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Manual form */
+.manual-form {
+  margin-bottom: 1.8rem;
+  font-weight: 600;
+  user-select: none;
+  text-align: left;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
+.manual-inputs {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 0.6rem;
+}
+
+.manual-inputs input {
+  flex: 1;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1.8px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.manual-inputs input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.manual-inputs button {
+  padding: 0 1.2rem;
+  border-radius: 10px;
+  border: none;
+  background: #3498db;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.manual-inputs input {
+  width: 100px;      /* fixed narrower width */
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1.8px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+
+/* Info cards */
+.info-card {
+  background: #f0f6f9;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+  box-shadow: 0 6px 18px rgba(52, 152, 219, 0.12);
+  text-align: left;
+  color: #34495e;
+  animation: fadeIn 0.7s ease forwards;
+}
+
+.info-card p,
+.info-card label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0.6rem 0;
+}
+
+.info-card input {
+  margin-left: auto;
+  width: 70px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  font-size: 1rem;
+  padding: 0.3rem 0.5rem;
+  transition: border-color 0.3s;
+}
+
+.info-card input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Probability text */
+.probability-text {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  user-select: none;
+  animation: colorFade 1.2s ease forwards;
+}
+
+.probability-text.safe {
+  color: #27ae60;
+}
+
+.probability-text.warning {
+  color: #f39c12;
+}
+
+.probability-text.danger {
+  color: #e74c3c;
+}
+
+/* Loading spinner */
+.spinner {
+  margin: 2rem auto;
+  width: 50px;
+  height: 50px;
+  animation: rotate 1.5s linear infinite;
+}
+
+.spinner svg {
+  width: 50px;
+  height: 50px;
+}
+
+.spinner .path {
+  stroke: #3498db;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes rotate {
+  100% {
     transform: rotate(360deg);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes colorFade {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-.safe {
-  color: #28a745; /* Green */
-  font-weight: bold;
+/* Marquee */
+.fun-fact {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #2980b9;
+  font-weight: 600;
+  user-select: none;
+  white-space: nowrap;
 }
-.warning {
-  color: #fd7e14; /* Orange */
-  font-weight: bold;
+
+/* Scrollbar styling for container */
+.app-container::-webkit-scrollbar {
+  width: 8px;
 }
-.danger {
-  color: #dc3545; /* Red */
-  font-weight: bold;
+
+.app-container::-webkit-scrollbar-thumb {
+  background-color: rgba(52, 152, 219, 0.5);
+  border-radius: 10px;
 }
